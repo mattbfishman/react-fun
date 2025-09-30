@@ -1,0 +1,49 @@
+.header{
+    font-size: 32px;
+}
+
+.subheader{
+    font-size: 18px;
+}
+
+.modal {
+    position: relative;
+    position: relative;
+    width: 300px;
+    height: 50px;
+    background: #aca9fd;
+    color: black;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.modalLabel {
+    color: #424242;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 0 15px;
+    width: 50px;
+}
+
+.main {
+    width: 500px;
+    height: 400px;
+    background-color: #e3e3e3;
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.submitButton {
+    background-color: lightblue;
+    color: white;
+    border: 1px solid #88aeba;
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+}

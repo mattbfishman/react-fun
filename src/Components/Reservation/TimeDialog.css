@@ -1,0 +1,18 @@
+.timeContainer{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 250px;
+    gap: 10px;
+}
+
+.dialog {
+    overflow-y: scroll;
+}
+
+.timeButton {
+    min-height: 50px;
+    background: #62bfd4;
+    border: 1px solid #3a6f6d;
+    border-radius: 5px;
+}

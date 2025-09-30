@@ -1,0 +1,30 @@
+const PhoneRange = Array.from(Array(10).keys())
+import './PeopleDialog.css'
+function PeopleDialog({ref, submit}) {
+
+    const handleButtonClick = (e) => {
+        if(e.target.nodeName === 'BUTTON'){
+            const value = e.target.value;
+            if(value){
+                submit(value);
+            }
+        }
+    }
+    return (
+        <dialog ref={ref}>
+            <form method="dialog">
+                <div className="peopleContainer" onClick={(e) => {handleButtonClick(e)}}>
+                    {PhoneRange.map((num) => {
+                        const displayNumber = num + 1;
+                        const display = displayNumber === 1 ? `${displayNumber} person` : `${displayNumber} persons`
+                        return(
+                            <button className='peopleButton' key={`people:${displayNumber}`} value={display}>{displayNumber}</button>
+                        )
+                    })}
+                </div>
+            </form>
+        </dialog>
+    )
+}
+
+export {PeopleDialog}
