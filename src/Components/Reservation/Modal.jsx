@@ -1,35 +1,38 @@
 import {useRef, useState} from 'react';
-function Modal({label, Dialog, className, ...rest}) {
+
+const ID = 'modalParent';
+function Modal({label, Dialog, className, name, ...rest}) {
     const dialogRef = useRef();
     const [modalValue, setModalValue] = useState('')
+    const [open, setOpen] = useState(false);
 
     const openDialog = () => {
         if(dialogRef.current){
-            console.log('here');
-            if(!dialogRef.current.open){
+            if(!dialogRef.current.open && !open){
                 dialogRef.current.showModal();
+                setOpen(true);
             }
         } 
     }
 
-    const handleSubmit = (value) => {
+    const handleValue = (value) => {
         if(value){
             setModalValue(value);
+            dialogRef.current.close();
+            setOpen(close);
         }
     }
 
 
     return (
-        <div className={className} onClick={() => {openDialog()}}>
+        <div id={ID} className={className} onClick={() => {openDialog()}}>
             <div className='modalLabel'>
                 {label}
             </div>
             {modalValue && 
-                <div>
-                    {modalValue}
-                </div>
+                <input required className='modalValue' name={name} value={modalValue} readOnly/>
             }
-            {Dialog && <Dialog ref={dialogRef} submit={handleSubmit} {...rest}/>}
+            {Dialog && <Dialog ref={dialogRef} setValue={handleValue} {...rest}/>}
         </div>
     );
 }

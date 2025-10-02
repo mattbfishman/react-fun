@@ -1,10 +1,11 @@
 import './TimeDialog.css';
-function TimeDialog({ref, submit, start = '12:00', closed = '23:00', increments = 30}) {
+function TimeDialog({ref, setValue, start = '12:00', closed = '23:00', increments = 30}) {
     const handleButtonClick = (e) => {
         if(e.target.nodeName === 'BUTTON'){
             const value = e.target.value;
             if(value){
-                submit(value);
+                setValue(value);
+                ref.current.close();
             }
         }
     }
@@ -36,13 +37,13 @@ function TimeDialog({ref, submit, start = '12:00', closed = '23:00', increments 
 
     return (
         <dialog ref={ref}>
-            <form method="dialog">
+            <div>
                 <div className="timeContainer" onClick={(e) => {handleButtonClick(e)}}>
                     {times.map((time) => {
-                        return <button className='timeButton' key={`${time}-selectTime`} value={time}>{time}</button>
+                        return <button type="button" className='timeButton' key={`${time}-selectTime`} value={time}>{time}</button>
                     })}
                 </div>
-            </form>
+            </div>
         </dialog>
     )
 }

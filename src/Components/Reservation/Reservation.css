@@ -47,3 +47,19 @@
     width: 100px;
     border-radius: 5px;
 }
+
+.modalValue {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;   
+    caret-color: transparent;
+    border: none;
+    background-color: transparent;
+    cursor: default;
+
+    &:focus {
+        border: none;
+        outline: none;
+    }
+}

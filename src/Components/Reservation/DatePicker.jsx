@@ -33,7 +33,7 @@ function DatePicker({className, label}) {
                     {dateValue}
                 </div>
             }
-            <input ref={dateInputRef} onChange={selectDateValue} type="date" id="datepicker" className='datePickerInput' />
+            <input name="date" ref={dateInputRef} onChange={selectDateValue} type="date" id="datepicker" className='datePickerInput' />
         </div>
     );
 }
