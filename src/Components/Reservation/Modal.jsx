@@ -28,7 +28,7 @@ function Modal({label, Dialog, className, name, register, ...rest}) {
             <div className='modalLabel'>
                 {label}
             </div>
-            <input name={name} {...register(name, { required: `${name} is required`})} className='modalValue' value={modalValue}/>
+            <input name={name} {...register(name, { required: `${label} is required`})} className='modalValue' value={modalValue}/>
             {Dialog && <Dialog ref={dialogRef} setValue={handleValue} {...rest}/>}
         </div>
     );

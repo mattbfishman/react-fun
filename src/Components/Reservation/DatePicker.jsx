@@ -4,6 +4,7 @@ import './DataPicker.css';
 function DatePicker({className, label, register}) {
     const [dateValue, setDateValue] = useState('');
     const dateInputRef = useRef();
+
     const showDatePicker = () => {
         if (dateInputRef.current) {
             dateInputRef.current.showPicker();
@@ -22,18 +23,14 @@ function DatePicker({className, label, register}) {
         const formattedDate = mm + '/' + dd + '/' + yyyy
         setDateValue(formattedDate);
     }
-
+    
     return (
         <div className={className} onClick={showDatePicker}>
             <div className='modalLabel'>
                 {label}
             </div>
-            {dateValue && 
-                <div>
-                    {dateValue}
-                </div>
-            }
-            <input {...register('date', { required: "Date is required" })} value={dateValue} ref={dateInputRef} onChange={selectDateValue} type="date" className='datePickerInput' />
+            <input className='modalValue' {...register('date', { required: "Date is required" })} value={dateValue} autoComplete='off'/>
+            <input ref={dateInputRef} onChange={selectDateValue} type="date" className='datePickerInput' />
         </div>
     );
 }
