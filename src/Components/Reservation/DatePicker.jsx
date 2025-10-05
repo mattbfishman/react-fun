@@ -1,9 +1,9 @@
 import {useState, useRef} from 'react';
 import './DataPicker.css';
 
-function DatePicker({className, label}) {
-    const [dateValue, setDateValue] = useState(null);
-    const dateInputRef = useRef(null);
+function DatePicker({className, label, register}) {
+    const [dateValue, setDateValue] = useState('');
+    const dateInputRef = useRef();
     const showDatePicker = () => {
         if (dateInputRef.current) {
             dateInputRef.current.showPicker();
@@ -13,7 +13,7 @@ function DatePicker({className, label}) {
     const selectDateValue = () => {
         const formatDate = new Date(dateInputRef.current.value);
         const yyyy = formatDate.getFullYear();
-        let mm = formatDate.getMonth() + 1; // Months start at 0!
+        let mm = formatDate.getMonth() + 1;
         let dd = formatDate.getDate();
 
         if (dd < 10) dd = '0' + dd;
@@ -33,7 +33,7 @@ function DatePicker({className, label}) {
                     {dateValue}
                 </div>
             }
-            <input name="date" ref={dateInputRef} onChange={selectDateValue} type="date" id="datepicker" className='datePickerInput' />
+            <input {...register('date', { required: "Date is required" })} value={dateValue} ref={dateInputRef} onChange={selectDateValue} type="date" className='datePickerInput' />
         </div>
     );
 }

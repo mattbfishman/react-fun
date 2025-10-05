@@ -1,7 +1,7 @@
 import {useRef, useState} from 'react';
 
-const ID = 'modalParent';
-function Modal({label, Dialog, className, name, ...rest}) {
+
+function Modal({label, Dialog, className, name, register, ...rest}) {
     const dialogRef = useRef();
     const [modalValue, setModalValue] = useState('')
     const [open, setOpen] = useState(false);
@@ -23,15 +23,12 @@ function Modal({label, Dialog, className, name, ...rest}) {
         }
     }
 
-
     return (
-        <div id={ID} className={className} onClick={() => {openDialog()}}>
+        <div className={className} onClick={() => {openDialog()}}>
             <div className='modalLabel'>
                 {label}
             </div>
-            {modalValue && 
-                <input required className='modalValue' name={name} value={modalValue} readOnly/>
-            }
+            <input name={name} {...register(name, { required: `${name} is required`})} className='modalValue' value={modalValue}/>
             {Dialog && <Dialog ref={dialogRef} setValue={handleValue} {...rest}/>}
         </div>
     );
