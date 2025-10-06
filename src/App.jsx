@@ -1,5 +1,5 @@
 import './App.css'
-import { Reservation } from './Components/Reservation'
+import { Reservation } from './feat/Reservation/Reservation'
 function App() {
   return (
     <>

@@ -17,7 +17,7 @@ function PeopleDialog({ref, setValue}) {
                 <div className="peopleContainer" onClick={(e) => {handleButtonClick(e)}}>
                     {PhoneRange.map((num) => {
                         const displayNumber = num + 1;
-                        const display = displayNumber === 1 ? `${displayNumber} person` : `${displayNumber} persons`
+                        const display = displayNumber === 1 ? `${displayNumber} person` : `${displayNumber} people`
                         return(
                             <button type="button" className='peopleButton' key={`people:${displayNumber}`} value={display}>{displayNumber}</button>
                         )

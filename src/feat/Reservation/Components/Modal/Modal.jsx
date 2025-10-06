@@ -1,7 +1,7 @@
 import {useRef, useState} from 'react';
 
 
-function Modal({label, Dialog, className, name, register, ...rest}) {
+function Modal({label, Dialog, className, name, register, setValue, ...rest}) {
     const dialogRef = useRef();
     const [modalValue, setModalValue] = useState('')
     const [open, setOpen] = useState(false);
@@ -20,6 +20,7 @@ function Modal({label, Dialog, className, name, register, ...rest}) {
             setModalValue(value);
             dialogRef.current.close();
             setOpen(close);
+            setValue(name, value);
         }
     }
 
