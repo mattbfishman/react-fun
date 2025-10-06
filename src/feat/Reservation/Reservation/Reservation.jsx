@@ -19,14 +19,22 @@ function Reservation (){
         })
     }
 
+    const goBack = () => {
+        setStep((prevStep) => {
+            return prevStep - 1;
+        })
+    }
+
     const [step, setStep] = useState(0);
     const StepElement = STEPS[step];
+    console.log(step ,' is')
 
     return <StepElement handleSubmit={handleSubmit(onSubmit)} formHelpers={{
         register,
         errors,
         setValue,
-        formData
+        formData,
+        goBack
     }}/>;
 }
 

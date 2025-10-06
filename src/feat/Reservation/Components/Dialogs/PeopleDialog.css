@@ -1,10 +1,13 @@
-.peopleContainer {
+.PeopleDialog__container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     gap: 10px;
 }
 
-.peopleButton {
+.PeopleDialog__button {
     width: 50px;
     height: 50px;
+    background-color: #0011ff;
+    color: white;
+    border: 1px solid #010cad;
 }

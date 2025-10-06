@@ -1,8 +1,8 @@
 import {useState, useRef} from 'react';
 import './DataPicker.css';
 
-function DatePicker({className, label, register, setValue}) {
-    const [dateValue, setDateValue] = useState('');
+function DatePicker({className, label, register, setValue, formData}) {
+    const [dateValue, setDateValue] = useState(formData?.date ?? '');
     const dateInputRef = useRef();
 
     const showDatePicker = () => {
@@ -27,11 +27,11 @@ function DatePicker({className, label, register, setValue}) {
     
     return (
         <div className={className} onClick={showDatePicker}>
-            <div className='modalLabel'>
+            <div className='ReservationModal__Label'>
                 {label}
             </div>
             {dateValue &&
-                <div className='modalValue'>
+                <div className='ReservationModal__Value'>
                     {dateValue}
                 </div>
             }

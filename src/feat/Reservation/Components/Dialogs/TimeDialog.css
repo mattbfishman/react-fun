@@ -1,4 +1,4 @@
-.timeContainer{
+.TimeDialog__container{
     display: flex;
     flex-direction: column;
     width: 400px;
@@ -6,13 +6,10 @@
     gap: 10px;
 }
 
-.dialog {
-    overflow-y: scroll;
-}
-
-.timeButton {
+.TimeDialog__button {
     min-height: 50px;
-    background: #62bfd4;
-    border: 1px solid #3a6f6d;
+    background-color: #0011ff;
+    color: white;
+    border: 1px solid #010cad;
     border-radius: 5px;
 }

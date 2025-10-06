@@ -1,7 +1,8 @@
+import './Error.css'
 function Error ({message}) {
     if(message){
         return (
-            <div>
+            <div className="Error">
                 {message}
             </div>
         )

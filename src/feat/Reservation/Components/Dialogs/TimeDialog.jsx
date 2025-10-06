@@ -38,9 +38,9 @@ function TimeDialog({ref, setValue, start = '12:00', closed = '23:00', increment
     return (
         <dialog ref={ref}>
             <div>
-                <div className="timeContainer" onClick={(e) => {handleButtonClick(e)}}>
+                <div className="TimeDialog__container" onClick={(e) => {handleButtonClick(e)}}>
                     {times.map((time) => {
-                        return <button type="button" className='timeButton' key={`${time}-selectTime`} value={time}>{time}</button>
+                        return <button type="button" className='TimeDialog__button' key={`${time}-selectTime`} value={time}>{time}</button>
                     })}
                 </div>
             </div>
