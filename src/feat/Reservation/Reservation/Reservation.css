@@ -17,12 +17,14 @@ html {
 .ReservationStepForm__header{
     font-size: 32px;
     font-weight: 600;
+    text-align: center;
 }
 
 .ReservationStepForm__subheader{
     font-size: 18px;
     margin: 0 20px;
     color: #3e3e3e;
+    text-align: center;
 }
 
 .ReservationStepForm_modalContainer {

@@ -1,7 +1,7 @@
 .TimeDialog__container{
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: 200px;
     height: 250px;
     gap: 10px;
 }
@@ -12,4 +12,10 @@
     color: white;
     border: 1px solid #010cad;
     border-radius: 5px;
+}
+
+@media (min-width: 600px) {
+    .TimeDialog__container {
+        width: 400px;
+    }   
 }
