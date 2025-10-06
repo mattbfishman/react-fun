@@ -1,9 +1,12 @@
-const PhoneRange = Array.from(Array(10).keys())
 import './PeopleDialog.css'
+import { BUTTON } from '../constants';
+
+const PhoneRange = Array.from(Array(10).keys())
+
 function PeopleDialog({ref, setValue}) {
 
     const handleButtonClick = (e) => {
-        if(e.target.nodeName === 'BUTTON'){
+        if(e.target.nodeName === BUTTON){
             const value = e.target.value;
             if(value){
                 setValue(value);

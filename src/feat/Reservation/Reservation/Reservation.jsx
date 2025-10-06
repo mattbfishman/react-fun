@@ -4,8 +4,9 @@ import './Reservation.css'
 import { ReservationStep } from '../Components/Steps/ReservationStep';
 import {ContactStep} from '../Components/Steps/ContactStep';
 import { useForm } from "react-hook-form";
+import { ReservationConfig } from '../configs/Reservation';
 
-const STEPS = [ReservationStep, ContactStep];
+const STEPS = [{Component: ReservationStep, config: ReservationConfig}, ContactStep];
 
 function Reservation (){
     const { register, handleSubmit, setValue, formState: { errors } } = useForm();
@@ -26,15 +27,15 @@ function Reservation (){
     }
 
     const [step, setStep] = useState(0);
-    const StepElement = STEPS[step];
-    console.log(step ,' is')
+    const stepInfo = STEPS[step];
+    const {Component, config} = stepInfo;
 
-    return <StepElement handleSubmit={handleSubmit(onSubmit)} formHelpers={{
+    return <Component handleSubmit={handleSubmit(onSubmit)} config={config} formHelpers={{
         register,
         errors,
         setValue,
         formData,
-        goBack
+        goBack,
     }}/>;
 }
 
