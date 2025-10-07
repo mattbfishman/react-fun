@@ -1,7 +1,7 @@
 import {useRef, useState} from 'react';
 
 
-function Modal({label = '', Dialog, className, name = '', register, setValue, errorMessage = '', ...rest}) {
+function Modal({labelText = '', Dialog, className, name = '', register, setValue, errorMessage = '', ...rest}) {
     const dialogRef = useRef();
     const [modalValue, setModalValue] = useState('')
     const [open, setOpen] = useState(false);
@@ -27,7 +27,7 @@ function Modal({label = '', Dialog, className, name = '', register, setValue, er
     return (
         <div className={className} onClick={() => {openDialog()}}>
             <div className='ReservationModal__Label'>
-                {label}
+                {labelText}
             </div>
             <input name={name} {...register(name, { required: errorMessage})} className='ReservationModal__Value' value={modalValue}/>
             {Dialog && <Dialog ref={dialogRef} setValue={handleValue} {...rest}/>}

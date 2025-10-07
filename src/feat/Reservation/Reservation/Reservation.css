@@ -29,7 +29,7 @@ html {
     letter-spacing: 2px;
 }
 
-.ReservationStepForm_modalContainer {
+.ReservationStepForm_container {
     margin: 10px 0;
 }
 
@@ -99,7 +99,7 @@ html {
         width: 400px;
     }
 
-    .ReservationStepForm_modalContainer {
+    .ReservationStepForm_container {
         margin: 20px 0;
     }
 

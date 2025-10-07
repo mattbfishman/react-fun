@@ -4,7 +4,7 @@ import './DataPicker.css';
 
 
 
-function DatePicker({className, label = '', register, setValue, formData, errorMessage = ''}) {
+function DatePicker({className, labelText = '', register, setValue, formData, errorMessage = ''}) {
     const [dateValue, setDateValue] = useState(formData?.date ?? '');
     const dateInputRef = useRef();
 
@@ -36,7 +36,7 @@ function DatePicker({className, label = '', register, setValue, formData, errorM
     return (
         <div className={className} onClick={showDatePicker}>
             <div className='ReservationModal__Label'>
-                {label}
+                {labelText}
             </div>
             {dateValue &&
                 <div className='ReservationModal__Value'>

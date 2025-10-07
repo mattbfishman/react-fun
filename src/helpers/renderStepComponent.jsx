@@ -1,25 +1,30 @@
 import {Error} from '../Components/Error';
 
+
 const renderStepComponent = (configItem, parent, extras) => {
-    const {Dialog, Component, label, name, className, errorMessage} = configItem;
+    const {Dialog, Component, labelText, name, className, errorMessage, componentType} = configItem;
     const additionalProps = configItem?.additionalProps ?? {};
 
-    const innerProps = {
+    const standardProps = {
         name,
         className,
-        label,
+        labelText,
         errorMessage,
         ...extras,
         ...additionalProps
     }; 
 
     if(Dialog){
-        innerProps.Dialog = Dialog;
+        standardProps.Dialog = Dialog;
     } 
 
+    if(componentType === 'input'){
+        standardProps.type = configItem?.type;
+    }
+
     return (
-        <div key={name} className={`${parent}_modalContainer`}>
-            <Component {...innerProps}/>
+        <div key={name} className={`${parent}_container`}>
+            <Component {...standardProps}/>
             <Error message={extras?.errors?.[name]?.message} />
         </div>
     )

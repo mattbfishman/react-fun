@@ -6,22 +6,24 @@ import { Modal } from "../Components/Modal/Modal";
 const ReservationConfig = [
     {
         name: 'people',
-        label: 'People',
+        labelText: 'People',
         Dialog: PeopleDialog,
         Component: Modal,
         className: 'ReservationStepForm__modal',
-        errorMessage: 'People is required'
+        errorMessage: 'People is required',
+        componentType: 'modal'
     },
     {
         name: 'date',
-        label: 'Date',
+        labelText: 'Date',
         Component: DatePicker,
         className: 'ReservationStepForm__modal',
-        errorMessage: 'Date is required'
+        errorMessage: 'Date is required',
+        componentType: 'datePicker'
     },
     {
         name: 'time',
-        label: 'Time',
+        labelText: 'Time',
         Dialog: TimeDialog,
         Component: Modal,
         additionalProps: {
@@ -30,7 +32,8 @@ const ReservationConfig = [
             increments: 15
         },
         className: 'ReservationStepForm__modal',
-        errorMessage: 'Time is required'
+        errorMessage: 'Time is required',
+        componentType: 'modal'
     },
 ];
 

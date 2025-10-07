@@ -5,8 +5,9 @@ import { ReservationStep } from '../Components/Steps/ReservationStep';
 import {ContactStep} from '../Components/Steps/ContactStep';
 import { useForm } from "react-hook-form";
 import { ReservationConfig } from '../configs/Reservation';
+import { ContactConfig } from '../configs/Contact';
 
-const STEPS = [{Component: ReservationStep, config: ReservationConfig}, ContactStep];
+const STEPS = [{Component: ReservationStep, config: ReservationConfig}, {Component: ContactStep, config: ContactConfig}];
 
 function Reservation (){
     const { register, handleSubmit, setValue, formState: { errors } } = useForm();
@@ -26,7 +27,7 @@ function Reservation (){
         })
     }
 
-    const [step, setStep] = useState(0);
+    const [step, setStep] = useState(1);
     const stepInfo = STEPS[step];
     const {Component, config} = stepInfo;
 

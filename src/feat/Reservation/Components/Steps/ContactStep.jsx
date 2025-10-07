@@ -1,6 +1,6 @@
+import { renderStepComponent } from "../../../../helpers/renderStepComponent";
 
-
-function ContactStep({handleSubmit, formHelpers}) {
+function ContactStep({handleSubmit, formHelpers, config}) {
     const {formData} = formHelpers;
     const time = formData?.time ?? '';
     const date = formData?.date ?? '';
@@ -12,9 +12,10 @@ function ContactStep({handleSubmit, formHelpers}) {
             <div>
                 You have a reservation for {time} on {date} with {people}
             </div>
-            <input type="tel"/>
-            <input type="email"/>
-            <input type="text"/>
+
+            {config.map(configItem => (
+              renderStepComponent(configItem, 'ReservationStepForm', formHelpers)
+            ))}
 
             <button onClick={goBack} className="ReservationStepForm__button ReservationStepForm__button--back">Go Back</button>
             <button type='submit' className="ReservationStepForm__button">Confirm</button>
